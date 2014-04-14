@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>gov.va.isaac-pa</groupId>
+    <artifactId>isaac-pa-parent</artifactId>
+    <version>1.0-Sprint_06-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>ISAAC Project Assembly Parent</name>
+    <url>https://csfe.aceworkspace.net/sf/projects/veterans_administration_project/</url>
+    
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>Copyright Notice
+                This is a work of the U.S. Government and is not subject to copyright
+                protection in the United States. Foreign copyrights may apply.
+            </comments>
+        </license>
+    </licenses>
+
+    <description>
+        The Maven Parent POM file for the ISAAC project assembly modules.  Declares shared dependencies, sets up the build.
+    </description>
+
+    <scm>
+        <connection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</connection>
+        <developerConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</developerConnection>
+        <url>https://github.com/Apelon-VA/ISAAC-PA</url>
+        <tag>master</tag>
+    </scm>
+    <distributionManagement>
+        <!-- I don't normally define these here, but the -D overrides are being problematic on the CI server... -->
+        <repository>
+          <id>maestro-deploy</id>
+          <name>VA Public Releases Repository</name>
+          <url>http://va-archiva-host:8082/archiva/repository/va-releases/</url>
+        </repository>
+        <snapshotRepository>
+          <id>maestro-deploy</id>
+          <name>VA Public Snapshots Repository</name>
+          <url>http://va-archiva-host:8082/archiva/repository/va-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+
+            <!-- Java version 1.8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+                      
+        </plugins>
+    </build> 
+
+    <modules>
+        <module>config</module>
+        <module>app</module>
+    </modules>
+    
+</project>
