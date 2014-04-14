@@ -1,0 +1,19 @@
+### Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+
+### Emacs
+*~
+
+### Eclipse
+.classpath
+.project
+.settings
+
+
+*.log
+berkeley-db/
+legoData.db/
