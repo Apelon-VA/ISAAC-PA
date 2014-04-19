@@ -4,7 +4,7 @@
 
     <groupId>gov.va.isaac-pa</groupId>
     <artifactId>isaac-pa-parent</artifactId>
-    <version>1.1-Sprint_06</version>
+    <version>1.0-Sprint_07-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ISAAC Project Assembly Parent</name>
