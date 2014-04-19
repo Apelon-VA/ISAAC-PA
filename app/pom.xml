@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
-<project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>gov.va.isaac-pa</groupId>
+        <groupId>gov.va.isaac.isaac-pa</groupId>
         <artifactId>isaac-pa-parent</artifactId>
-        <version>1.0-Sprint_06-SNAPSHOT</version>
+        <version>1.0-Sprint_07-SNAPSHOT</version>
     </parent>
-    <groupId>gov.va.isaac-pa</groupId>
+    <groupId>gov.va.isaac.isaac-pa.modules</groupId>
     <artifactId>app</artifactId>
     <packaging>jar</packaging>
 
@@ -18,13 +16,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <isaac.version>1.0-Sprint_07-SNAPSHOT</isaac.version>
     </properties>
 
     <dependencies>
 
         <!-- Configuration module. -->
         <dependency>
-            <groupId>gov.va.isaac-pa</groupId>
+            <groupId>gov.va.isaac.isaac-pa.modules</groupId>
             <artifactId>config</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
@@ -33,56 +32,56 @@
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>isaac-app</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
 
         <!-- ISAAC Import Export. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>import-export</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
     
         <!-- ISAAC Taxonomy View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>taxonomy-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC Search View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>search-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
     
         <!-- ISAAC Lego View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>lego-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC Refset View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>refset-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC Info Model View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>info-model-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC List / Batch View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>list-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
          
     </dependencies>
