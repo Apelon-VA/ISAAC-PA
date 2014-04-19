@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>gov.va.isaac-pa</groupId>
+    <groupId>gov.va.isaac.isaac-pa.vha-cimi</groupId>
     <artifactId>isaac-pa-parent</artifactId>
     <version>1.0-Sprint_06-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -30,7 +30,7 @@
         <connection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</connection>
         <developerConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</developerConnection>
         <url>https://github.com/Apelon-VA/ISAAC-PA</url>
-        <tag>master</tag>
+        <tag>vha-cimi</tag>
     </scm>
     <distributionManagement>
         <!-- I don't normally define these here, but the -D overrides are being problematic on the CI server... -->
