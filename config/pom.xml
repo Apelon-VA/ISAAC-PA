@@ -9,7 +9,6 @@
         <artifactId>isaac-pa-parent</artifactId>
         <version>1.0-Sprint_06-SNAPSHOT</version>
     </parent>
-    <groupId>gov.va.isaac-pa</groupId>
     <artifactId>config</artifactId>
     <packaging>jar</packaging>
 

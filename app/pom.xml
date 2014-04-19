@@ -9,7 +9,6 @@
         <artifactId>isaac-pa-parent</artifactId>
         <version>1.0-Sprint_06-SNAPSHOT</version>
     </parent>
-    <groupId>gov.va.isaac-pa</groupId>
     <artifactId>app</artifactId>
     <packaging>jar</packaging>
 
@@ -18,6 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <isaac.version>1.0-Sprint_06</isaac.version>
     </properties>
 
     <dependencies>
@@ -33,56 +33,56 @@
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>isaac-app</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
 
         <!-- ISAAC Import Export. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>import-export</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
     
         <!-- ISAAC Taxonomy View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>taxonomy-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC Search View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>search-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
     
         <!-- ISAAC Lego View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>lego-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC Refset View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>refset-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC Info Model View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>info-model-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
         
         <!-- ISAAC List / Batch View. -->
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>list-view</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${isaac.version}</version>
         </dependency>
          
     </dependencies>
