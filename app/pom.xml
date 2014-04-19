@@ -5,7 +5,7 @@
     <parent>
         <groupId>gov.va.isaac-pa</groupId>
         <artifactId>isaac-pa-parent</artifactId>
-        <version>1.2-Sprint_07-SNAPSHOT</version>
+        <version>1.0-Sprint_07-SNAPSHOT</version>
     </parent>
     <artifactId>app</artifactId>
     <packaging>jar</packaging>
@@ -15,7 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <isaac.version>1.0-Sprint_06</isaac.version>
+        <isaac.version>1.0-Sprint_07-SNAPSHOT</isaac.version>
     </properties>
 
     <dependencies>
