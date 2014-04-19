@@ -5,10 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>gov.va.isaac-pa</groupId>
+        <groupId>gov.va.isaac.isaac-pa.vha</groupId>
         <artifactId>isaac-pa-parent</artifactId>
         <version>1.0-Sprint_06-SNAPSHOT</version>
     </parent>
+    <groupId>gov.va.isaac.isaac-pa.vha.modules</groupId>
     <artifactId>app</artifactId>
     <packaging>jar</packaging>
 
@@ -24,7 +25,7 @@
 
         <!-- Configuration module. -->
         <dependency>
-            <groupId>gov.va.isaac-pa</groupId>
+            <groupId>gov.va.isaac.isaac-pa.vha.modules</groupId>
             <artifactId>config</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
