@@ -128,9 +128,9 @@
             <id>installer</id>
             <dependencies>
                 <dependency>
-                    <groupId>org.ihtsdo.otf</groupId>
-                    <artifactId>tcc-test-data</artifactId>
-                    <version>3.0</version>
+                    <groupId>gov.va.isaac.db</groupId>
+                    <artifactId>isaac-sct</artifactId>
+                    <version>2014.01.31-build-1</version>
                     <type>zip</type>
                 </dependency>
             </dependencies>
@@ -175,8 +175,8 @@
                                     <goal>unpack-dependencies</goal>
                                 </goals>
                                 <configuration>
-                                    <includeGroupIds>org.ihtsdo.otf</includeGroupIds>
-                                    <includeArtifactIds>tcc-test-data</includeArtifactIds>
+                                    <includeGroupIds>gov.va.isaac.db</includeGroupIds>
+                                    <includeArtifactIds>isaac-sct</includeArtifactIds>
                                     <outputDirectory>${project.build.directory}/snomed-db</outputDirectory>
                                 </configuration>
                             </execution>
