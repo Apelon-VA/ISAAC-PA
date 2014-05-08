@@ -16,4 +16,5 @@ release.properties
 
 *.log
 berkeley-db/
+berkeley-db*/
 legoData.db/
