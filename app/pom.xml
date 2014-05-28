@@ -83,6 +83,13 @@
             <artifactId>list-view</artifactId>
             <version>${isaac.version}</version>
         </dependency>
+        
+        <!-- Workflow View. -->
+        <dependency>
+            <groupId>gov.va.isaac.modules</groupId>
+            <artifactId>isaac-workflow</artifactId>
+            <version>${isaac.version}</version>
+        </dependency>
          
     </dependencies>
 

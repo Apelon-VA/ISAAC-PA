@@ -18,3 +18,4 @@ release.properties
 berkeley-db/
 berkeley-db*/
 legoData.db/
+workflowDB/
