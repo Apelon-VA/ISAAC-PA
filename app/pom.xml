@@ -5,7 +5,7 @@
     <parent>
         <groupId>gov.va.isaac.isaac-pa</groupId>
         <artifactId>isaac-pa-parent</artifactId>
-        <version>1.0-Sprint_08-SNAPSHOT</version>
+        <version>1.0-Sprint_09-SNAPSHOT</version>
     </parent>
     <groupId>gov.va.isaac.isaac-pa.modules</groupId>
     <artifactId>app</artifactId>
@@ -16,7 +16,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <isaac.version>1.0-Sprint_07</isaac.version>
+        <isaac.version>1.0-Sprint_08</isaac.version>
     </properties>
 
     <dependencies>
@@ -81,6 +81,13 @@
         <dependency>
             <groupId>gov.va.isaac.modules</groupId>
             <artifactId>list-view</artifactId>
+            <version>${isaac.version}</version>
+        </dependency>
+        
+        <!-- Workflow View. -->
+        <dependency>
+            <groupId>gov.va.isaac.modules</groupId>
+            <artifactId>isaac-workflow</artifactId>
             <version>${isaac.version}</version>
         </dependency>
          
