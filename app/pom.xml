@@ -90,6 +90,12 @@
             <artifactId>isaac-workflow</artifactId>
             <version>${isaac.version}</version>
         </dependency>
+        
+        <dependency>
+            <groupId>gov.va.isaac.modules</groupId>
+            <artifactId>concept-wizard-view</artifactId>
+            <version>${isaac.version}</version>
+        </dependency>
          
     </dependencies>
 
