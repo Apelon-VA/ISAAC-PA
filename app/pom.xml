@@ -5,7 +5,7 @@
     <parent>
         <groupId>gov.va.isaac.isaac-pa</groupId>
         <artifactId>isaac-pa-parent</artifactId>
-        <version>1.0-Sprint_10-SNAPSHOT</version>
+        <version>1.0-Sprint_11-SNAPSHOT</version>
     </parent>
     <groupId>gov.va.isaac.isaac-pa.modules</groupId>
     <artifactId>app</artifactId>
@@ -16,7 +16,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <isaac.version>1.0-Sprint_09</isaac.version>
+        <isaac.version>1.0-Sprint_11-SNAPSHOT</isaac.version>
     </properties>
 
     <dependencies>
@@ -90,6 +90,12 @@
             <artifactId>isaac-workflow</artifactId>
             <version>${isaac.version}</version>
         </dependency>
+        
+        <dependency>
+            <groupId>gov.va.isaac.modules</groupId>
+            <artifactId>concept-wizard-view</artifactId>
+            <version>${isaac.version}</version>
+        </dependency>
          
     </dependencies>
 
@@ -137,7 +143,7 @@
                 <dependency>
                     <groupId>gov.va.isaac.db</groupId>
                     <artifactId>isaac-sct</artifactId>
-                    <version>2014.01.31-build-1</version>
+                    <version>2014.01.31-build-2</version>
                     <type>zip</type>
                 </dependency>
             </dependencies>
