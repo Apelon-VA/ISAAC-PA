@@ -141,6 +141,7 @@
 					<groupId>gov.va.isaac.db</groupId>
 					<artifactId>solor-snomed-loinc</artifactId>
 					<version>2014.07.25</version>
+					<classifier>bdb</classifier>
 					<type>zip</type>
 				</dependency>
 			</dependencies>
