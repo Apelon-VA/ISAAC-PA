@@ -139,8 +139,8 @@
 			<dependencies>
 				<dependency>
 					<groupId>gov.va.isaac.db</groupId>
-					<artifactId>isaac-sct</artifactId>
-					<version>2014.01.31-build-2</version>
+					<artifactId>solor-snomed-loinc</artifactId>
+					<version>2014.07.25</version>
 					<type>zip</type>
 				</dependency>
 			</dependencies>
@@ -186,7 +186,7 @@
 								</goals>
 								<configuration>
 									<includeGroupIds>gov.va.isaac.db</includeGroupIds>
-									<includeArtifactIds>isaac-sct</includeArtifactIds>
+									<includeArtifactIds>solor-snomed-loinc</includeArtifactIds>
 									<outputDirectory>${project.build.directory}/snomed-db</outputDirectory>
 								</configuration>
 							</execution>
