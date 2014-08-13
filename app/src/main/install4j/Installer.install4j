@@ -22,7 +22,7 @@
     <roots />
     <mountPoints>
       <mountPoint id="200" root="" location="lib" mode="755" />
-      <mountPoint id="22" root="" location="" mode="755" />
+      <mountPoint id="22" root="" location="berkeley-db" mode="755" />
     </mountPoints>
     <entries>
       <dirEntry mountPoint="200" file="${project.build.directory}/isaac-app/lib/" overwriteMode="1" shared="false" fileMode="644" uninstallMode="2" overrideFileMode="false" overrideOverwriteMode="true" overrideUninstallMode="true" entryMode="direct" subDirectory="" excludeSuffixes="" dirMode="755" overrideDirMode="false">
