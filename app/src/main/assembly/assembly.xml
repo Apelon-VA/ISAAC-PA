@@ -19,7 +19,6 @@
             <scope>test</scope>
             <excludes>
                 <exclude>junit:junit</exclude>
-                <exclude>org.ihtsdo.otf:tcc-test-data</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>
