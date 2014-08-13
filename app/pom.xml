@@ -255,11 +255,6 @@
 											<classifier>installer_x64</classifier>
 										</artifact>
 										<artifact>
-											<file>${project.build.directory}/install4j/isaac-app_windows_${project.version}.exe</file>
-											<type>exe</type>
-											<classifier>installer_x32</classifier>
-										</artifact>
-										<artifact>
 											<file>${project.build.directory}/install4j/isaac-app_windows-x64_${project.version}.exe</file>
 											<type>exe</type>
 											<classifier>installer_x64</classifier>

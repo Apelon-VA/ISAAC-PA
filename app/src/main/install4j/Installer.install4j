@@ -260,19 +260,9 @@
                         <object class="com.install4j.api.beans.ScriptProperty">
                           <void property="value">
                             <string>long memory = (SystemInfo.getPhysicalMemory() / 1024l / 1024l);
-long desiredMax;
-long start;
-    	
-if (Util.isWindows() &amp;&amp; System.getProperty("sun.arch.data.model").equals("32"))
-{
-    desiredMax = 1200;
-	start = 500;
-}
-else
-{
-    desiredMax = 3000;
-    start = 1500;
-}
+long desiredMax = 3000;
+long start = 768;
+
 long max =  (long)(memory * 0.65);
 if (max &lt; desiredMax)
 {
@@ -305,14 +295,7 @@ return "-Xmx" + desiredMax + "M";</string>
                       <void property="script">
                         <object class="com.install4j.api.beans.ScriptProperty">
                           <void property="value">
-                            <string>if (Util.isWindows() &amp;&amp; System.getProperty("sun.arch.data.model").equals("32"))
-{
-	return "-Xms" + 500 + "M";
-}
-else
-{
-    return "-Xms" + 1500 + "M";
-}</string>
+                            <string>return "-Xms" + 768 + "M";</string>
                           </void>
                         </object>
                       </void>
@@ -471,7 +454,27 @@ else
     </applications>
   </installerGui>
   <mediaSets>
-    <windows name="Windows64" id="40" customizedId="" mediaFileName="" installDir="ISAAC" overridePrincipalLanguage="false" jreBitType="64" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="windows-amd64-1.8.0" manualJREEntry="false" bundleType="1" jreURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" customInstallBaseDir="C:\" contentFilesType="1" downloadURL="" verifyIntegrity="true">
+    <unixInstaller name="Unix Installer" id="39" customizedId="" mediaFileName="" installDir="ISAAC" overridePrincipalLanguage="false" jreBitType="all" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="linux-amd64-1.8.0_11" manualJREEntry="false" bundleType="1" jreURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" customInstallBaseDir="" contentFilesType="1" downloadURL="">
+      <excludedLaunchers>
+        <launcher id="107" />
+      </excludedLaunchers>
+      <excludedBeans />
+      <overriddenPrincipalLanguage id="en" customLocalizationFile="" />
+      <exclude>
+        <entry location=".i4j_fileset_49" fileType="regular" />
+      </exclude>
+      <variables />
+      <autoUpdate useMinUpdatableVersion="false" minUpdatableVersion="" useMaxUpdatableVersion="false" maxUpdatableVersion="">
+        <commentFiles />
+        <customAttributes />
+      </autoUpdate>
+      <excludedComponents />
+      <includedDownloadableComponents />
+      <installerScript mode="1" file="">
+        <content />
+      </installerScript>
+    </unixInstaller>
+    <windows name="Windows64" id="40" customizedId="" mediaFileName="" installDir="ISAAC" overridePrincipalLanguage="false" jreBitType="64" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="windows-amd64-1.8.0_11" manualJREEntry="false" bundleType="1" jreURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" customInstallBaseDir="C:\" contentFilesType="1" downloadURL="" verifyIntegrity="true">
       <excludedLaunchers />
       <excludedBeans />
       <overriddenPrincipalLanguage id="en" customLocalizationFile="" />
@@ -484,7 +487,7 @@ else
       <excludedComponents />
       <includedDownloadableComponents />
     </windows>
-    <macosFolder name="Mac OS X Folder" id="42" customizedId="" mediaFileName="" installDir="ISAAC" overridePrincipalLanguage="false" jreBitType="all" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="macosx-amd64-1.8.0" manualJREEntry="false" bundleType="1" jreURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" appleJre="false" requiredVmIdPrefix="" customInstallBaseDir="" contentFilesType="1" downloadURL="" signLaunchers="false">
+    <macosFolder name="Mac OS X Folder" id="42" customizedId="" mediaFileName="" installDir="ISAAC" overridePrincipalLanguage="false" jreBitType="all" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="macosx-amd64-1.8.0_11" manualJREEntry="false" bundleType="1" jreURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" appleJre="false" requiredVmIdPrefix="" customInstallBaseDir="" contentFilesType="1" downloadURL="" signLaunchers="false">
       <excludedLaunchers>
         <launcher id="107" />
       </excludedLaunchers>
@@ -501,25 +504,11 @@ else
       <excludedComponents />
       <includedDownloadableComponents />
     </macosFolder>
-    <windows name="Windows32" id="112" customizedId="" mediaFileName="" installDir="ISAAC" overridePrincipalLanguage="false" jreBitType="32" runPostProcessor="false" postProcessor="" failOnPostProcessorError="false" useLegacyMediaFileIds="false" legacyMediaFileIds="" includedJRE="windows-x86-1.8.0" manualJREEntry="false" bundleType="1" jreURL="" jreShared="false" directDownload="false" installOnlyIfNecessary="false" customInstallBaseDir="C:\" contentFilesType="1" downloadURL="" verifyIntegrity="true">
-      <excludedLaunchers />
-      <excludedBeans />
-      <overriddenPrincipalLanguage id="en" customLocalizationFile="" />
-      <exclude />
-      <variables />
-      <autoUpdate useMinUpdatableVersion="false" minUpdatableVersion="" useMaxUpdatableVersion="false" maxUpdatableVersion="">
-        <commentFiles />
-        <customAttributes />
-      </autoUpdate>
-      <excludedComponents />
-      <includedDownloadableComponents />
-    </windows>
   </mediaSets>
   <buildIds buildAll="true">
     <mediaSet refId="39" />
     <mediaSet refId="40" />
     <mediaSet refId="42" />
-    <mediaSet refId="112" />
   </buildIds>
   <buildOptions verbose="false" faster="false" disableSigning="false" debug="false" />
 </install4j>
