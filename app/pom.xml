@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -134,14 +136,6 @@
 	<profiles>
 		<profile>
 			<id>installer</id>
-			<dependencies>
-				<dependency>
-					<groupId>gov.va.isaac.db</groupId>
-					<artifactId>isaac-sct</artifactId>
-					<version>2014.01.31-build-2</version>
-					<type>zip</type>
-				</dependency>
-			</dependencies>
 			<build>
 				<plugins>
 
@@ -153,7 +147,7 @@
 						<executions>
 							<execution>
 								<id>install4j-resources</id>
-								<phase>validate</phase>
+								<phase>generate-sources</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
@@ -174,19 +168,47 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-dependency-plugin</artifactId>
-						<version>2.2</version>
 						<executions>
 							<execution>
-								<id>unpack-snomed-db</id>
-								<phase>package</phase>
+								<id>unpack-db</id>
+								<phase>prepare-package</phase>
 								<goals>
-									<goal>unpack-dependencies</goal>
+									<goal>unpack</goal>
 								</goals>
 								<configuration>
-									<includeGroupIds>gov.va.isaac.db</includeGroupIds>
-									<includeArtifactIds>isaac-sct</includeArtifactIds>
-									<outputDirectory>${project.build.directory}/snomed-db</outputDirectory>
+									<artifactItems>
+										<artifactItem>
+											<groupId>gov.va.isaac.db</groupId>
+											<artifactId>solor-snomed-loinc</artifactId>
+											<version>2014.07.25</version>
+											<classifier>bdb</classifier>
+											<type>zip</type>
+											<outputDirectory>${project.build.directory}/db</outputDirectory>
+										</artifactItem>
+									</artifactItems>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+					<!-- Pull the berkeley-db folder up a level from where it comes in the artifact - so we don't have to hardcode this path -->
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>prepare-package</phase>
+								<configuration>
+									<tasks>
+										<move todir="${project.build.directory}/db">
+											<fileset dir="${project.build.directory}/db" includes="*/berkeley-db/**" />
+											<cutdirsmapper dirs = "1"/>
+										</move>
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
 							</execution>
 						</executions>
 					</plugin>
@@ -250,11 +272,6 @@
 											<file>${project.build.directory}/install4j/isaac-app_macos_${project.version}.dmg</file>
 											<type>dmg</type>
 											<classifier>installer_x64</classifier>
-										</artifact>
-										<artifact>
-											<file>${project.build.directory}/install4j/isaac-app_windows_${project.version}.exe</file>
-											<type>exe</type>
-											<classifier>installer_x32</classifier>
 										</artifact>
 										<artifact>
 											<file>${project.build.directory}/install4j/isaac-app_windows-x64_${project.version}.exe</file>
