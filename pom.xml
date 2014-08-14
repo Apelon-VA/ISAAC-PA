@@ -29,7 +29,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>1.0-Sprint_11</isaac.version>
+		<isaac.version>1.1-Sprint_11</isaac.version>
 	</properties>
 
 	<scm>
