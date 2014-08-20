@@ -60,13 +60,6 @@
 			<version>${isaac.version}</version>
 		</dependency>
 		
-		<!-- ISAAC Refset View. -->
-		<dependency>
-			<groupId>gov.va.isaac.modules</groupId>
-			<artifactId>refset-view</artifactId>
-			<version>${isaac.version}</version>
-		</dependency>
-		
 		<!-- ISAAC Info Model View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
