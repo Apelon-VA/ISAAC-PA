@@ -19,5 +19,6 @@ berkeley-db/
 berkeley-db*/
 legoData.db/
 workflowDB/
+drools-rules/
 
 scenicView.properties/
