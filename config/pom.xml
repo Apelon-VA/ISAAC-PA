@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>gov.va.isaac.isaac-pa</groupId>
 		<artifactId>isaac-pa-parent</artifactId>
-		<version>1.0-Sprint_13-SNAPSHOT</version>
+		<version>1.0-Sprint_13</version>
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.modules</groupId>
 	<artifactId>config</artifactId>
