@@ -22,3 +22,5 @@ workflowDB/
 drools-rules/
 
 scenicView.properties/
+.idea
+isaac-pa-parent.iml
