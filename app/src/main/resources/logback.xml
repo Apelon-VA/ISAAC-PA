@@ -71,6 +71,7 @@
 	<logger name="gov.va.legoEdit" level="TRACE" />
 	<!--logger name="gov.va.oia" level="TRACE"/-->
 	<logger name="org.ihtsdo" level="INFO" />
+	<logger name="css" level="ERROR" /> <!-- JavaFX has some bugs that are causing it to be noisy about css errors... -->
 
 	<!-- Set the root logger (all loggers not specified above) at a WARN level -->
 	<root level="WARN">
