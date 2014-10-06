@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- TODO update this so that the version number populates from maven.  Also - dynamically update the schema location path to point to the appropriate
+ tag within github (can I be clever enough to figure this out from the maven isaac version?) -->
+<isaacAppConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd">
+	<applicationTitle>ISAAC Toolkit (v0.14)</applicationTitle>
+</isaacAppConfig>
+	
