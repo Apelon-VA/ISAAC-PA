@@ -4,5 +4,7 @@
 <isaacAppConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd">
 	<applicationTitle>ISAAC Toolkit (v0.14)</applicationTitle>
+	<workflowServerURL>http://162.243.255.43:8080/kie-wb/</workflowServerURL>
+	<workflowServerDeploymentID>gov.va.isaac.demo:terminology-authoring:1.4</workflowServerDeploymentID>
 </isaacAppConfig>
 	
