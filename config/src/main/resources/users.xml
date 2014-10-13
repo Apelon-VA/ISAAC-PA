@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- TODO  Also - dynamically update the schema location path to point to the appropriate
+ tag within github (can I be clever enough to figure this out from the maven isaac version?) -->
+<isaacUserCreation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/otf-util/src/main/resources/xsd/UserGenerationSchema.xsd">
+	<user>
+		<uniqueFullName>Dan Armbrust</uniqueFullName>
+		<uniqueLogonName>darmbrust</uniqueLogonName>
+		<workflowUserName>dan</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Katy</uniqueFullName>
+		<uniqueLogonName>katy</uniqueLogonName>
+	</user>
+	<user>
+		<uniqueFullName>Alejandro Osornio</uniqueFullName>
+		<uniqueLogonName>aosornio</uniqueLogonName>
+		<workflowUserName>alejandro</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Jesse Efron</uniqueFullName>
+		<uniqueLogonName>jefron</uniqueLogonName>
+		<workflowUserName>jesse</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Keith Campbell</uniqueFullName>
+		<uniqueLogonName>kcampbell</uniqueLogonName>
+		<workflowUserName>keith</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Brian Carlsen</uniqueFullName>
+		<uniqueLogonName>bcarlsen</uniqueLogonName>
+		<workflowUserName>brian</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Catherine Hoang</uniqueFullName>
+		<uniqueLogonName>choang</uniqueLogonName>
+		<workflowUserName>catherine</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Joel Kniaz</uniqueFullName>
+		<uniqueLogonName>kjoel</uniqueLogonName>
+		<workflowUserName>joel</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Jessica Snell</uniqueFullName>
+		<uniqueLogonName>jsnell</uniqueLogonName>
+		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
+	</user>
+	<user>
+		<uniqueFullName>Tun Tun Naing</uniqueFullName>
+		<uniqueLogonName>tnaing</uniqueLogonName>
+		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
+	</user>
+	<user>
+		<uniqueFullName>Test User</uniqueFullName>
+		<uniqueLogonName>test</uniqueLogonName>
+		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
+	</user>
+	<newUserDefaults>
+		<statedInferredPolicy>inferredThenStated</statedInferredPolicy>
+	</newUserDefaults>
+</isaacUserCreation>
+	
