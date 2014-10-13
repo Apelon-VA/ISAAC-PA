@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>gov.va.isaac.isaac-pa.vha</groupId>
 		<artifactId>isaac-pa-parent</artifactId>
-		<version>1.0-Sprint_14</version>
+		<version>1.0-Sprint_15-SNAPSHOT</version>
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.vha.modules</groupId>
 	<artifactId>config</artifactId>
