@@ -20,6 +20,7 @@ berkeley-db*/
 legoData.db/
 workflowDB/
 drools-rules/
+profiles/
 
 scenicView.properties/
 .idea
