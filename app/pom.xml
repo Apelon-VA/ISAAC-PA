@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>gov.va.isaac.isaac-pa.vha</groupId>
 		<artifactId>isaac-pa-parent</artifactId>
-		<version>1.0-Sprint_14-SNAPSHOT</version>
+		<version>1.0-Sprint_14</version>
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.vha.modules</groupId>
 	<artifactId>app</artifactId>
@@ -195,7 +194,7 @@
 									<tasks>
 										<move todir="${project.build.directory}/db">
 											<fileset dir="${project.build.directory}/db" includes="*/berkeley-db/**" />
-											<cutdirsmapper dirs = "1"/>
+											<cutdirsmapper dirs="1" />
 										</move>
 									</tasks>
 								</configuration>
