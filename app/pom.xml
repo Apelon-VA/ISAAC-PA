@@ -90,6 +90,28 @@
 
 	<build>
 		<plugins>
+			<!-- Configure logging for the mojo code we will hit. -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>set-system-properties</goal>
+						</goals>
+						<configuration>
+							<properties>
+								<property>
+									<name>logback.configurationFile</name>
+									<value>${project.basedir}/logback.xml</value>
+								</property>
+							</properties>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
@@ -143,19 +165,28 @@
 						</executions>
 					</plugin>
 				
-					<!-- Unpack database. -->
+					<!-- Unpack database, and configuration details -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-dependency-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>unpack-db</id>
+								<id>unpack-db-and-users</id>
 								<phase>prepare-package</phase>
 								<goals>
 									<goal>unpack</goal>
 								</goals>
 								<configuration>
 									<artifactItems>
+									<!-- unzip the config module, so we can get the users.xml file out of it -->
+										<artifactItem>
+											<groupId>gov.va.isaac.isaac-pa.modules</groupId>
+											<artifactId>config</artifactId>
+											<version>${project.parent.version}</version>
+											<outputDirectory>${project.build.directory}/config/</outputDirectory>
+										</artifactItem>
+										
+										<!-- The database to start with -->
 										<artifactItem>
 											<groupId>gov.va.isaac.db</groupId>
 											<artifactId>solor-snomed</artifactId>
@@ -170,7 +201,50 @@
 						</executions>
 					</plugin>
 					
-					<!-- TODO gen users here -->
+					<!-- generate user profiles -->
+					<plugin>
+						<groupId>gov.va.isaac.modules</groupId>
+						<artifactId>mojos</artifactId>
+						<version>${isaac.version}</version>
+						<executions>
+							<execution>
+								<id>setup</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>setup-terminology-store</goal>
+								</goals>
+								<configuration>
+									<bdbFolderLocation>${project.build.directory}/isaac-app/</bdbFolderLocation>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>create-users</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>create-users</goal>
+								</goals>
+								<configuration>
+									<usersFileLocation>${project.build.directory}/config/users.xml</usersFileLocation>
+								</configuration>
+							</execution>
+
+							<!-- TODO this will be where we process changesets.... -->
+
+							<execution>
+								<id>shutdown</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>shutdown-terminology-store</goal>
+								</goals>
+								<configuration>
+									<moveToReadOnly>false</moveToReadOnly>
+								</configuration>
+							</execution>
+						</executions>
+
+					</plugin>
 					
 				</plugins>
 			</build>
