@@ -90,18 +90,6 @@
 
 	<build>
 		<plugins>
-
-			<!-- Java version 1.8 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-					  
 			<!-- Package into a ZIP file. -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -121,7 +109,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
 
