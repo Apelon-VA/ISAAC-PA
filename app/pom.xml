@@ -102,7 +102,7 @@
 						<phase>package</phase>
 						<configuration>
 							<descriptors>
-								<descriptor>${project.basedir}/src/main/assembly/assembly.xml</descriptor>
+								<descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
 							</descriptors>
 							<finalName>isaac-app</finalName>
 						</configuration>
