@@ -11,7 +11,7 @@
 
 	<!-- Prints everything -->
 	<appender name="FILE-DEBUG" class="ch.qos.logback.core.FileAppender">
-		<file>isaac-maven-build-debug.log</file>
+		<file>target/isaac-maven-build-debug.log</file>
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>TRACE</level>
 		</filter>
