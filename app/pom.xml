@@ -142,7 +142,7 @@
 					<name>!skipDB</name>  <!-- Hack maven, which still doesn't allow chaining of profiles.  What year is this? -->
 				</property>
 			</activation>
-			<id>prepDB</id>
+			<id>zipWithDB</id>
 			<build>
 				<plugins>
 					<!-- Unpack isaac-app.zip file, which was created up above - contains the entire app deployment, minus the DB and users. -->
@@ -246,15 +246,6 @@
 
 					</plugin>
 					
-				</plugins>
-			</build>
-			
-		</profile>
-		
-		<profile>
-			<id>zipWithDB</id>
-			<build>
-				<plugins>
 					<!-- Package into a ZIP file with the DB. -->
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
@@ -275,11 +266,14 @@
 							</execution>
 						</executions>
 					</plugin>
+					
 				</plugins>
 			</build>
+			
 		</profile>
-	
+		
 		<profile>
+			<!-- This profile depends on zipWithDB being run -->
 			<id>installer</id>
 			<build>
 				<plugins>
