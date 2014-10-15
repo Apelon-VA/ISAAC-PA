@@ -1,4 +1,4 @@
 java \
   -Xms900M \
-  -Xmx1400M \
+  -Xmx3500M \
   -cp "lib/*" gov.va.isaac.gui.App
