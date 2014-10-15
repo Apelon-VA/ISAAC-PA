@@ -23,3 +23,5 @@ drools-rules/
 profiles/
 
 scenicView.properties/
+.idea
+isaac-pa-parent.iml

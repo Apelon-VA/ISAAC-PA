@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.vha.modules</groupId>
 	<artifactId>app</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>ISAAC Application Assembly</name>
 	<description>Assembles specified ISAAC modules and configuration into an application.</description>
@@ -90,47 +90,199 @@
 
 	<build>
 		<plugins>
-
-			<!-- Java version 1.8 -->
+			<!-- Configure logging for the mojo code we will hit. -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>set-system-properties</goal>
+						</goals>
+						<configuration>
+							<properties>
+								<property>
+									<name>logback.configurationFile</name>
+									<value>${project.basedir}/logback.xml</value>
+								</property>
+							</properties>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
-					  
-			<!-- Package into a ZIP file. -->
+		
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
 					<execution>
 						<id>zip</id>
 						<goals>
-							<goal>attached</goal>
+							<goal>single</goal>
 						</goals>
-						<phase>package</phase>
+						<phase>compile</phase> <!-- Other package phases need this - so do it during compile -->
 						<configuration>
 							<descriptors>
-								<descriptor>${project.basedir}/src/main/assembly/assembly.xml</descriptor>
+								<descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
 							</descriptors>
 							<finalName>isaac-app</finalName>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
-
+	
 	<profiles>
+		<!-- If a user wants to just build the small zip, and not do any DB stuff, they should set the parameter '-DskipDB' -->
+		<profile>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>!skipDB</name>  <!-- Hack maven, which still doesn't allow chaining of profiles.  What year is this? -->
+				</property>
+			</activation>
+			<id>prepDB</id>
+			<build>
+				<plugins>
+					<!-- Unpack isaac-app.zip file, which was created up above - contains the entire app deployment, minus the DB and users. -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>truezip-maven-plugin</artifactId>
+						<version>1.2</version>
+						<executions>
+							<execution>
+								<id>unpack-isaac-zip</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>cp</goal>
+								</goals>
+								<configuration>
+									<from>${project.build.directory}/isaac-app.zip</from>
+									<to>${project.build.directory}/isaac-app</to>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				
+					<!-- Unpack database, and configuration details -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>unpack-db-and-users</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+									<!-- unzip the config module, so we can get the users.xml file out of it -->
+										<artifactItem>
+											<groupId>gov.va.isaac.isaac-pa.modules</groupId>
+											<artifactId>config</artifactId>
+											<version>${project.parent.version}</version>
+											<outputDirectory>${project.build.directory}/config/</outputDirectory>
+										</artifactItem>
+										
+										<!-- The database to start with -->
+										<artifactItem>
+											<groupId>gov.va.isaac.db</groupId>
+											<artifactId>solor-snomed</artifactId>
+											<version>2014.09.14</version>
+											<classifier>active-only</classifier>
+											<type>bdb.zip</type>
+											<outputDirectory>${project.build.directory}/isaac-app/</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+					<!-- generate user profiles -->
+					<plugin>
+						<groupId>gov.va.isaac.modules</groupId>
+						<artifactId>mojos</artifactId>
+						<version>${isaac.version}</version>
+						<executions>
+							<execution>
+								<id>setup</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>setup-terminology-store</goal>
+								</goals>
+								<configuration>
+									<bdbFolderLocation>${project.build.directory}/isaac-app/</bdbFolderLocation>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>create-users</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>create-users</goal>
+								</goals>
+								<configuration>
+									<usersFileLocation>${project.build.directory}/config/users.xml</usersFileLocation>
+								</configuration>
+							</execution>
+
+							<!-- TODO this will be where we process changesets.... -->
+
+							<execution>
+								<id>shutdown</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>shutdown-terminology-store</goal>
+								</goals>
+								<configuration>
+									<moveToReadOnly>false</moveToReadOnly>
+								</configuration>
+							</execution>
+						</executions>
+
+					</plugin>
+					
+				</plugins>
+			</build>
+			
+		</profile>
+		
+		<profile>
+			<id>zipWithDB</id>
+			<build>
+				<plugins>
+					<!-- Package into a ZIP file with the DB. -->
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>zip-with-DB</id>
+								<goals>
+									<goal>attached</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<descriptors>
+										<descriptor>${project.basedir}/src/assembly/assembly-withDB.xml</descriptor>
+									</descriptors>
+									<finalName>isaac-app</finalName>
+									<classifier>with-DB</classifier>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	
 		<profile>
 			<id>installer</id>
 			<build>
 				<plugins>
-
 					<!-- Create filtered Install4J configuration. -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -139,7 +291,7 @@
 						<executions>
 							<execution>
 								<id>install4j-resources</id>
-								<phase>generate-sources</phase>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
@@ -155,76 +307,7 @@
 							</execution>
 						</executions>
 					</plugin>
-
-					<!-- Unpack database. -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-dependency-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>unpack-db</id>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>unpack</goal>
-								</goals>
-								<configuration>
-									<artifactItems>
-										<artifactItem>
-											<groupId>gov.va.isaac.db</groupId>
-											<artifactId>solor-snomed-loinc</artifactId>
-											<version>2014.09.14</version>
-											<classifier>bdb</classifier>
-											<type>zip</type>
-											<outputDirectory>${project.build.directory}/db</outputDirectory>
-										</artifactItem>
-									</artifactItems>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
 					
-					<!-- Pull the berkeley-db folder up a level from where it comes in the artifact - so we don't have to hardcode this path -->
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.7</version>
-						<executions>
-							<execution>
-								<phase>prepare-package</phase>
-								<configuration>
-									<tasks>
-										<move todir="${project.build.directory}/db">
-											<fileset dir="${project.build.directory}/db" includes="*/berkeley-db/**" />
-											<cutdirsmapper dirs="1" />
-										</move>
-									</tasks>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-
-					<!-- Unzip isaac-app.zip file. -->
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>truezip-maven-plugin</artifactId>
-						<version>1.2</version>
-						<executions>
-							<execution>
-								<id>unpack-isaac-zip</id>
-								<phase>package</phase>
-								<goals>
-									<goal>cp</goal>
-								</goals>
-								<configuration>
-									<from>${project.build.directory}/isaac-app.zip</from>
-									<to>${project.build.directory}/isaac-app</to>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-
 					<plugin>
 						<groupId>com.google.code.maven-install4j</groupId>
 						<artifactId>maven-install4j-plugin</artifactId>
@@ -248,6 +331,7 @@
 							</execution>
 						</executions>
 					</plugin>
+					
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
@@ -284,5 +368,4 @@
 			</build>
 		</profile>
 	</profiles>
-
 </project>
