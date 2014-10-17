@@ -189,8 +189,8 @@
 										<!-- The database to start with -->
 										<artifactItem>
 											<groupId>gov.va.isaac.db</groupId>
-											<artifactId>solor-snomed</artifactId>
-											<version>2014.09.14</version>
+											<artifactId>solor-snomed-loinc</artifactId>
+											<version>2014.10.17</version>
 											<classifier>active-only</classifier>
 											<type>bdb.zip</type>
 											<outputDirectory>${project.build.directory}/isaac-app/</outputDirectory>
