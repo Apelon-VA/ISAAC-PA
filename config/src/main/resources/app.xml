@@ -6,6 +6,8 @@
 	<applicationTitle>ISAAC Toolkit (v0.14)</applicationTitle>
 	<workflowServerUrl>http://162.243.255.43:8080/kie-wb/</workflowServerUrl>
 	<workflowServerDeploymentId>gov.va.isaac.demo:terminology-authoring:1.5</workflowServerDeploymentId>
+	<defaultEditPathName>ISAAC development path origin</defaultEditPathName>
+	<defaultEditPathUuid>f5c0a264-15af-5b94-a964-bb912ea5634f</defaultEditPathUuid>
 	<defaultViewPathName>ISAAC development path origin</defaultViewPathName>
 	<defaultViewPathUuid>f5c0a264-15af-5b94-a964-bb912ea5634f</defaultViewPathUuid>
 </isaacAppConfig>
