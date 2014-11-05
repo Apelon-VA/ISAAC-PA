@@ -201,12 +201,32 @@
 						</executions>
 					</plugin>
 					
-					<!-- generate user profiles -->
 					<plugin>
 						<groupId>gov.va.isaac.modules</groupId>
 						<artifactId>mojos</artifactId>
 						<version>${isaac.version}</version>
 						<executions>
+						
+							<!-- See https://raw.githubusercontent.com/IHTSDO/ISAAC/master/mojos/src/main/java/gov/va/isaac/mojos/profileSync/ProfilesMojoBase.java 
+								for details on how authentication is handled for this.  This execution only runs if changeSetUrl and changeSetUrlType are defined in app.xml 
+								To skip SCM steps for profiles entirely, specify '-DprofileSyncDisable=true'
+							-->
+							<execution>
+								<id>get-and-link-profile-scm</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>get-and-link-profile-scm</goal>
+								</goals>
+								<configuration>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
+									<!--Depending on the SCM implementation, there are multiple ways to handle this auth, see comments above-->
+									<!--profileSyncUsername></profileSyncUsername>  
+									<profileSyncPassword></profileSyncPassword-->
+								</configuration>
+							</execution>
+						
+							<!-- generate user profiles -->
 							<execution>
 								<id>setup</id>
 								<phase>prepare-package</phase>
@@ -227,6 +247,25 @@
 								</goals>
 								<configuration>
 									<usersFileLocation>${project.build.directory}/config/users.xml</usersFileLocation>
+								</configuration>
+							</execution>
+							
+							<!-- See https://raw.githubusercontent.com/IHTSDO/ISAAC/master/mojos/src/main/java/gov/va/isaac/mojos/profileSync/ProfilesMojoBase.java 
+								for details on how authentication is handled for this.  This execution only runs if changeSetUrl and changeSetUrlType are defined in app.xml
+								To skip SCM steps for profiles entirely, specify '-DprofileSyncDisable=true'
+							-->
+							<execution>
+								<id>add-commit-and-push-profile-scm</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>add-commit-and-push-profile-scm</goal>
+								</goals>
+								<configuration>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
+									<!--Depending on the SCM implementation, there are multiple ways to handle this auth, see comments above-->
+									<!--profileSyncUsername></profileSyncUsername>  
+									<profileSyncPassword></profileSyncPassword-->
 								</configuration>
 							</execution>
 
