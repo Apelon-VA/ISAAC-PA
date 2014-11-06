@@ -9,6 +9,7 @@
         <fileSet>
             <directory>${project.basedir}/target/isaac-app/</directory>
             <outputDirectory>/</outputDirectory>
+            <useDefaultExcludes>false</useDefaultExcludes>
         </fileSet>
     </fileSets>
     <includeBaseDirectory>false</includeBaseDirectory>
