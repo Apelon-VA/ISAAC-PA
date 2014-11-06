@@ -21,6 +21,8 @@ legoData.db/
 workflowDB/
 drools-rules/
 profiles/
+*.bdb/
+*.hidden/
 
 scenicView.properties/
 .idea
