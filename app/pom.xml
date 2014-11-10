@@ -86,6 +86,20 @@
 			<artifactId>isaac-workflow</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
+		
+		<!-- Sync GUI integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>sync-view</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+		
+		<!-- Sync GIT integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>sync-git</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
