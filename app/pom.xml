@@ -37,6 +37,13 @@
 			<artifactId>import-export</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
+
+		<!-- ISAAC Content request. -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>content-request</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
 	
 		<!-- ISAAC Taxonomy View. -->
 		<dependency>
