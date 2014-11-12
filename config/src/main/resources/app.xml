@@ -18,25 +18,12 @@
   <!-- Repositories for code and artifacts -->
   <scmConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA-VHA.git</scmConnection>
   <scmUrl>https://github.com/Apelon-VA/ISAAC-PA-VHA/config</scmUrl>
-  <distReposId>maestro-deploy</distReposId>
-  <distReposName>VA Public Releases Repository</distReposName>
-  <distReposUrl>http://va-archiva-host:8082/archiva/repository/va-releases/</distReposUrl>
-  <distReposSnapId>maestro-deploy</distReposSnapId>
-  <distReposSnapName>VA Public Snapshots Repository</distReposSnapName>
-  <distReposSnapUrl>http://va-archiva-host:8082/archiva/repository/va-snapshots/</distReposSnapUrl>
-
   <!-- Database version info -->
   <dbGroupId>gov.va.isaac.db</dbGroupId>
   <dbArtifactId>solor-all</dbArtifactId>
   <dbVersion>2014.10.13</dbVersion>
   <dbClassifier>active-only</dbClassifier>
   <dbType>bdb.zip</dbType>
-
-  <!-- Users version info - PLACEHOLDER
-  <usersGroupId>${users.group.id}</usersGroupId>
-  <usersArtifactid>${users.artifactid}</usersArtifactid>
-  <usersVersion>${users.version}</usersVersion>
-   -->
 
   <!-- Drools version info - PLACEHOLDER
   <droolsGroupId>${drools.group.id}</droolsGroupId>
