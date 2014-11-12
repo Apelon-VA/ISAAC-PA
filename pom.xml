@@ -35,7 +35,7 @@
 		<connection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</connection>
 		<developerConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</developerConnection>
 		<url>https://github.com/Apelon-VA/ISAAC-PA</url>
-		<tag>develop</tag>
+		<tag>master</tag>
 	</scm>
 
 	<build>
