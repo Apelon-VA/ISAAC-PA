@@ -45,6 +45,13 @@
 			<version>${isaac.version}</version>
 		</dependency>
 	
+		<!-- ISAAC Classifier. -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>isaac-classifier</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+
 		<!-- ISAAC Taxonomy View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
