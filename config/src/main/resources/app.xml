@@ -37,6 +37,7 @@
   <previousReleaseVersion>20140731</previousReleaseVersion>
   <releaseVersion>20150131</releaseVersion>
   <extensionNamespace>1000161</extensionNamespace>
+  <moduleId>sampleModuleId</moduleId>
   <changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_demo_changesets</changeSetUrl>
   <changeSetUrlType>GIT</changeSetUrlType>
   <appSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd</appSchemaLocation>
