@@ -33,7 +33,7 @@
    -->
 
   <!-- Application properties -->
-  <applicationTitle>VHA ISAAC App - ISAAC Toolkit (v1.0)</applicationTitle>
+  <applicationTitle>Develop ISAAC App - ISAAC Toolkit (v1.0)</applicationTitle>
   <previousReleaseVersion>20140731</previousReleaseVersion>
   <releaseVersion>20150131</releaseVersion>
   <extensionNamespace>1000161</extensionNamespace>
