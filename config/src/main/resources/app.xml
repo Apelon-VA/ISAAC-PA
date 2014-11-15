@@ -20,7 +20,7 @@
 	<scmUrl>https://github.com/Apelon-VA/ISAAC-PA-VHA/config</scmUrl>
 	<!-- Database version info -->
 	<dbGroupId>gov.va.isaac.db</dbGroupId>
-	<dbArtifactId>solor-snomed-loinc</dbArtifactId>
+	<dbArtifactId>solor-all</dbArtifactId>
 	<dbVersion>2014.11.12</dbVersion>
 	<dbClassifier>active-only</dbClassifier>
 	<dbType>bdb.zip</dbType>
@@ -38,12 +38,9 @@
 	<releaseVersion>20150131</releaseVersion>
 	<extensionNamespace>1000161</extensionNamespace>
 	<moduleId>sampleModuleId</moduleId>
-	<!-- GIT Testing -->
-	<!--changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_demo_changesets</changeSetUrl>
-	<changeSetUrlType>GIT</changeSetUrlType-->
-	<!-- SVN Testing -->
-	<changeSetUrl>https://csfe.aceworkspace.net/svn/repos/isaac_pa_demo_changesets_svn</changeSetUrl>
-	<changeSetUrlType>SVN</changeSetUrlType>
+
+	<changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_vha_changesets_git</changeSetUrl>
+	<changeSetUrlType>GIT</changeSetUrlType>
 	
 	<appSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd</appSchemaLocation>
 	<userSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/otf-util/src/main/resources/xsd/UserGenerationSchema.xsd</userSchemaLocation>

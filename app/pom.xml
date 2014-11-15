@@ -227,7 +227,7 @@
 										<!-- The database to start with -->
 										<artifactItem>
 											<groupId>gov.va.isaac.db</groupId>
-											<artifactId>solor-snomed-loinc</artifactId>
+											<artifactId>solor-all</artifactId>
 											<version>2014.11.12</version>
 											<classifier>active-only</classifier>
 											<type>bdb.zip</type>
