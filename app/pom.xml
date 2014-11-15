@@ -46,11 +46,12 @@
 		</dependency>
 	
 		<!-- ISAAC Classifier. -->
-		<dependency>
+		<!-- disabled for the moment -->
+		<!--dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>isaac-classifier</artifactId>
 			<version>${isaac.version}</version>
-		</dependency>
+		</dependency-->
 
 		<!-- ISAAC Taxonomy View. -->
 		<dependency>
@@ -101,10 +102,19 @@
 			<version>${isaac.version}</version>
 		</dependency>
 		
+		<!-- Only one of the following is required - GIT or SVN - but no harm comes from having both
+		  the correct implementation will be selected based on the sync configuration in app.xml - changeSetUrlType parameter  -->
 		<!-- Sync GIT integration -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>sync-git</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+		
+		<!-- Sync SVN integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>sync-svn</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
 
