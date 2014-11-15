@@ -46,11 +46,12 @@
 		</dependency>
 	
 		<!-- ISAAC Classifier. -->
-		<dependency>
+		<!-- disabled for the moment -->
+		<!--dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>isaac-classifier</artifactId>
 			<version>${isaac.version}</version>
-		</dependency>
+		</dependency-->
 
 		<!-- ISAAC Taxonomy View. -->
 		<dependency>
