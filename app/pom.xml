@@ -37,7 +37,22 @@
 			<artifactId>import-export</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
+
+		<!-- ISAAC Content request. -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>content-request</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
 	
+		<!-- ISAAC Classifier. -->
+		<!-- disabled for the moment -->
+		<!--dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>isaac-classifier</artifactId>
+			<version>${isaac.version}</version>
+		</dependency-->
+
 		<!-- ISAAC Taxonomy View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
@@ -77,6 +92,29 @@
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>isaac-workflow</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+		
+		<!-- Sync GUI integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>sync-view</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+		
+		<!-- Only one of the following is required - GIT or SVN - but no harm comes from having both
+		  the correct implementation will be selected based on the sync configuration in app.xml - changeSetUrlType parameter  -->
+		<!-- Sync GIT integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>sync-git</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+		
+		<!-- Sync SVN integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>sync-svn</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
 
@@ -189,8 +227,8 @@
 										<!-- The database to start with -->
 										<artifactItem>
 											<groupId>gov.va.isaac.db</groupId>
-											<artifactId>solor-snomed-loinc</artifactId>
-											<version>2014.10.17</version>
+											<artifactId>solor-snomed</artifactId>
+											<version>2014.11.12</version>
 											<classifier>active-only</classifier>
 											<type>bdb.zip</type>
 											<outputDirectory>${project.build.directory}/isaac-app/</outputDirectory>
@@ -201,12 +239,32 @@
 						</executions>
 					</plugin>
 					
-					<!-- generate user profiles -->
 					<plugin>
 						<groupId>gov.va.isaac.modules</groupId>
 						<artifactId>mojos</artifactId>
 						<version>${isaac.version}</version>
 						<executions>
+						
+							<!-- See https://raw.githubusercontent.com/IHTSDO/ISAAC/master/mojos/src/main/java/gov/va/isaac/mojos/profileSync/ProfilesMojoBase.java 
+								for details on how authentication is handled for this.  This execution only runs if changeSetUrl and changeSetUrlType are defined in app.xml 
+								To skip SCM steps for profiles entirely, specify '-DprofileSyncDisable=true'
+							-->
+							<execution>
+								<id>get-and-link-profile-scm</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>get-and-link-profile-scm</goal>
+								</goals>
+								<configuration>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
+									<!--Depending on the SCM implementation, there are multiple ways to handle this auth, see comments above-->
+									<!--profileSyncUsername></profileSyncUsername>  
+									<profileSyncPassword></profileSyncPassword-->
+								</configuration>
+							</execution>
+						
+							<!-- generate user profiles -->
 							<execution>
 								<id>setup</id>
 								<phase>prepare-package</phase>
@@ -229,8 +287,37 @@
 									<usersFileLocation>${project.build.directory}/config/users.xml</usersFileLocation>
 								</configuration>
 							</execution>
+							
+							<!-- See https://raw.githubusercontent.com/IHTSDO/ISAAC/master/mojos/src/main/java/gov/va/isaac/mojos/profileSync/ProfilesMojoBase.java 
+								for details on how authentication is handled for this.  This execution only runs if changeSetUrl and changeSetUrlType are defined in app.xml
+								To skip SCM steps for profiles entirely, specify '-DprofileSyncDisable=true'
+							-->
+							<execution>
+								<id>add-commit-and-push-profile-scm</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>add-commit-and-push-profile-scm</goal>
+								</goals>
+								<configuration>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
+									<!--Depending on the SCM implementation, there are multiple ways to handle this auth, see comments above-->
+									<!--profileSyncUsername></profileSyncUsername>  
+									<profileSyncPassword></profileSyncPassword-->
+								</configuration>
+							</execution>
 
-							<!-- TODO this will be where we process changesets.... -->
+							<!-- Process any existing changeset (*.eccs) files into the DB -->
+							<execution>
+								<id>process-changesets</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>process-changesets</goal>
+								</goals>
+								<configuration>
+									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+								</configuration>
+							</execution>
 
 							<execution>
 								<id>shutdown</id>
