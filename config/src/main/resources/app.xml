@@ -38,8 +38,13 @@
   <releaseVersion>20150131</releaseVersion>
   <extensionNamespace>1000161</extensionNamespace>
   <moduleId>sampleModuleId</moduleId>
-  <changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_demo_changesets</changeSetUrl>
-  <changeSetUrlType>GIT</changeSetUrlType>
+  <!-- GIT Testing -->
+  <!--changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_demo_changesets</changeSetUrl>
+  <changeSetUrlType>GIT</changeSetUrlType-->
+  <!-- SVN Testing -->
+  <changeSetUrl>https://csfe.aceworkspace.net/svn/repos/isaac_pa_demo_changesets_svn</changeSetUrl>
+  <changeSetUrlType>SVN</changeSetUrlType>
+  
   <appSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd</appSchemaLocation>
   <userSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/otf-util/src/main/resources/xsd/UserGenerationSchema.xsd</userSchemaLocation>
   <workflowServerUrl>http://162.243.255.43:8080/kie-wb/</workflowServerUrl>
