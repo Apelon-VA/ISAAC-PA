@@ -55,7 +55,7 @@
 	<user>
 		<uniqueFullName>Test User</uniqueFullName>
 		<uniqueLogonName>test</uniqueLogonName>
-		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
+		<workflowUserName>editor2</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
 	</user>
 	<newUserDefaults>
 		<statedInferredPolicy>inferredThenStated</statedInferredPolicy>
