@@ -28,7 +28,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>1.8-Release_01</isaac.version>
+		<isaac.version>1.1.0_Release</isaac.version>
 	</properties>
 
 	<scm>

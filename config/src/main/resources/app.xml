@@ -3,17 +3,18 @@
  tag within github (can I be clever enough to figure this out from the maven isaac version?) -->
 <isaacAppConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd">
-	<!-- This file is validated against a schema, thus the order
-			 of each of these entries matters.	Do not change it without
-			 also updating the corresponding schema. -->
+	<!-- 
+		This file is validated against a schema, thus the order of each of these entries matters.
+		Do not change it without also updating the corresponding schema. 
+	-->
 
 	<!-- Archetype properties -->
-	<archetypeGroupId>gov.va.isaac.archetypes</archetypeGroupId>
-	<archetypeArtifactId>isaac-archetypes-pa</archetypeArtifactId>
-	<archetypeVersion>1.0-Release_1.0</archetypeVersion>
+	<archetypeGroupId>NA</archetypeGroupId>
+	<archetypeArtifactId>NA</archetypeArtifactId>
+	<archetypeVersion>NA</archetypeVersion>
 
 	<!-- ISAAC software version -->
-	<isaacVersion>1.8-Release_1.0</isaacVersion>
+	<isaacVersion>1.1.0_Release</isaacVersion>
 
 	<!-- Repositories for code and artifacts -->
 	<scmConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA-VHA.git</scmConnection>
@@ -21,7 +22,7 @@
 	<!-- Database version info -->
 	<dbGroupId>gov.va.isaac.db</dbGroupId>
 	<dbArtifactId>solor-all</dbArtifactId>
-	<dbVersion>2014.11.12</dbVersion>
+	<dbVersion>2014.11.25</dbVersion>
 	<dbClassifier>active-only</dbClassifier>
 	<dbType>bdb.zip</dbType>
 
@@ -33,7 +34,7 @@
 	 -->
 
 	<!-- Application properties -->
-	<applicationTitle>VHA ISAAC App - ISAAC Toolkit (v1.0)</applicationTitle>
+	<applicationTitle>VHA ISAAC App - ISAAC Toolkit (v1.1)</applicationTitle>
 	<previousReleaseVersion>20140731</previousReleaseVersion>
 	<releaseVersion>20150131</releaseVersion>
 	<extensionNamespace>1000161</extensionNamespace>
