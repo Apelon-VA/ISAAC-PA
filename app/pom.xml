@@ -228,7 +228,7 @@
 										<artifactItem>
 											<groupId>gov.va.isaac.db</groupId>
 											<artifactId>solor-snomed</artifactId>
-											<version>2014.11.12</version>
+											<version>2014.11.25</version>
 											<classifier>active-only</classifier>
 											<type>bdb.zip</type>
 											<outputDirectory>${project.build.directory}/isaac-app/</outputDirectory>
