@@ -58,4 +58,5 @@
 	<defaultViewPathUuid>f5c0a264-15af-5b94-a964-bb912ea5634f</defaultViewPathUuid>
 	<workflowPromotionPathName>ISAAC release path</workflowPromotionPathName>
 	<workflowPromotionPathUuid>c73859bc-4887-5273-8f57-c9b2557d5ac2</workflowPromotionPathUuid>
-</isaacAppConfig>	
+
+</isaacAppConfig>
