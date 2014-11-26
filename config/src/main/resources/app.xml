@@ -5,7 +5,7 @@
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd">
 	<!-- 
 		This file is validated against a schema, thus the order of each of these entries matters.
-		Do not change it without  also updating the corresponding schema. 
+		Do not change it without also updating the corresponding schema. 
 	-->
 
 	<!-- Archetype properties -->
