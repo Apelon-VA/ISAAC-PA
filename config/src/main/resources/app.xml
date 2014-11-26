@@ -9,12 +9,12 @@
 	-->
 
 	<!-- Archetype properties -->
-	<archetypeGroupId>gov.va.isaac.archetypes</archetypeGroupId>
-	<archetypeArtifactId>isaac-archetypes-pa</archetypeArtifactId>
-	<archetypeVersion>1.0-Release_1.0</archetypeVersion>
+	<archetypeGroupId>NA</archetypeGroupId>
+	<archetypeArtifactId>NA</archetypeArtifactId>
+	<archetypeVersion>NA</archetypeVersion>
 
 	<!-- ISAAC software version -->
-	<isaacVersion>1.0-Sprint_16-SNAPSHOT</isaacVersion>
+	<isaacVersion>1.0-Sprint_17-SNAPSHOT</isaacVersion>
 
 	<!-- Repositories for code and artifacts -->
 	<scmConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA-VHA.git</scmConnection>
@@ -22,7 +22,7 @@
 	<!-- Database version info -->
 	<dbGroupId>gov.va.isaac.db</dbGroupId>
 	<dbArtifactId>solor-snomed</dbArtifactId>
-	<dbVersion>2014.11.12</dbVersion>
+	<dbVersion>2014.11.25</dbVersion>
 	<dbClassifier>active-only</dbClassifier>
 	<dbType>bdb.zip</dbType>
 
@@ -34,7 +34,7 @@
 	 -->
 
 	<!-- Application properties -->
-	<applicationTitle>Develop ISAAC App - ISAAC Toolkit (SNAPSHOT 16)</applicationTitle>
+	<applicationTitle>Develop ISAAC App - ISAAC Toolkit (SNAPSHOT 17)</applicationTitle>
 	<previousReleaseVersion>20140731</previousReleaseVersion>
 	<releaseVersion>20150131</releaseVersion>
 	<extensionNamespace>1000161</extensionNamespace>
