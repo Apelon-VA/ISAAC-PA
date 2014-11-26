@@ -52,7 +52,7 @@
 		</encoder>
 	</appender>
 	
-	<!-- A Console appender that prints DEBUG -->
+	<!-- A Console appender that prints INFO -->
 	<appender name="STDOUT-INFO" class="ch.qos.logback.core.ConsoleAppender">
 		<filter class="ch.qos.logback.classic.filter.LevelFilter">
 			<level>INFO</level>
