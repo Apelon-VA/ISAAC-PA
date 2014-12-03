@@ -28,7 +28,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>Sprint_16.1</isaac.version>
+		<isaac.version>Sprint_17-SNAPSHOT</isaac.version>
 	</properties>
 
 	<scm>
