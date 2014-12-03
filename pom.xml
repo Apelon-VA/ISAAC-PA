@@ -28,14 +28,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>1.0-Sprint_17-SNAPSHOT</isaac.version>
+		<isaac.version>Sprint_16.2</isaac.version>
 	</properties>
 
 	<scm>
-		<connection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</connection>
-		<developerConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA.git</developerConnection>
 		<url>https://github.com/Apelon-VA/ISAAC-PA</url>
-		<tag>master</tag>
 	</scm>
 
 	<build>
@@ -52,6 +49,26 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m4.3</version>
+				<configuration>
+					<pushReleases>false</pushReleases>
+				<noDeploy>true</noDeploy>
+			<noTag>true</noTag>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<scmCommentPrefix>[jgitflow-plugin]</scmCommentPrefix>
+					<enableSshAgent>true</enableSshAgent>
+					<flowInitContext>
+						<masterBranchName>master</masterBranchName>
+						<developBranchName>develop</developBranchName>
+						<featureBranchPrefix>feature-</featureBranchPrefix>
+						<releaseBranchPrefix>release-</releaseBranchPrefix>
+						<hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+					</flowInitContext>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
