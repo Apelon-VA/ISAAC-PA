@@ -14,7 +14,7 @@
 	<archetypeVersion>NA</archetypeVersion>
 
 	<!-- ISAAC software version -->
-	<isaacVersion>1.1.0_Release</isaacVersion>
+	<isaacVersion>Sprint_16.1</isaacVersion>
 
 	<!-- Repositories for code and artifacts -->
 	<scmConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA-VHA.git</scmConnection>
