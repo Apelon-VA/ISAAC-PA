@@ -15,10 +15,4 @@
 		</fileSet>
 	</fileSets>
 	<includeBaseDirectory>false</includeBaseDirectory>
-	<dependencySets>
-		<dependencySet>
-			<outputDirectory>lib</outputDirectory>
-			<useProjectArtifact>false</useProjectArtifact>
-		</dependencySet>
-	</dependencySets>
 </assembly>
