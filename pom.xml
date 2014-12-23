@@ -41,8 +41,8 @@
 		<dbType>bdb.zip</dbType>
 		
 		<!-- Yes, silly, but these don't seem to propagate down properly otherwise, yet another maven bug -->
-		<organization.name>${organization.name}</organization.name>
-		<scm.url>${scm.url}</scm.url>
+		<organization.name>${project.organization.name}</organization.name>
+		<scm.url>${project.scm.url}</scm.url>
 	</properties>
 
 	<scm>
