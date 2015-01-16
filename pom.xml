@@ -33,10 +33,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>Sprint_17-SNAPSHOT</isaac.version>
+		<isaac.version>Sprint_17.0</isaac.version>
 		<dbGroupId>gov.va.isaac.db</dbGroupId>
 		<dbArtifactId>solor-snomed</dbArtifactId>
-		<dbVersion>2014.12.20</dbVersion>
+		<dbVersion>2015.01.15</dbVersion>
 		<dbClassifier>active-only</dbClassifier>
 		<dbType>bdb.zip</dbType>
 		
