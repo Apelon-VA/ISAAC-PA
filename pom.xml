@@ -21,6 +21,11 @@
 			</comments>
 		</license>
 	</licenses>
+	
+	<organization>
+		<name>U.S. Department of Veterans Affairs</name>
+		<url>www.va.gov</url>
+	</organization>
 
 	<description>
 		The Maven Parent POM file for the ISAAC project assembly modules.  Declares shared dependencies, sets up the build.
@@ -28,7 +33,16 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>Sprint_16.1</isaac.version>
+		<isaac.version>Sprint_17.0</isaac.version>
+		<dbGroupId>gov.va.isaac.db</dbGroupId>
+		<dbArtifactId>solor-all</dbArtifactId>
+		<dbVersion>2015.01.15</dbVersion>
+		<dbClassifier>active-only</dbClassifier>
+		<dbType>bdb.zip</dbType>
+		
+		<!-- Yes, silly, but these don't seem to propagate down properly otherwise, yet another maven bug -->
+		<organization.name>${project.organization.name}</organization.name>
+		<scm.url>${project.scm.url}</scm.url>
 	</properties>
 
 	<scm>
