@@ -13,28 +13,8 @@
 	<archetypeArtifactId>NA</archetypeArtifactId>
 	<archetypeVersion>NA</archetypeVersion>
 
-	<!-- ISAAC software version -->
-	<isaacVersion>Sprint_16.1</isaacVersion>
-
-	<!-- Repositories for code and artifacts -->
-	<scmConnection>scm:git:git@github.com:Apelon-VA/ISAAC-PA-VHA.git</scmConnection>
-	<scmUrl>https://github.com/Apelon-VA/ISAAC-PA-VHA/config</scmUrl>
-	<!-- Database version info -->
-	<dbGroupId>gov.va.isaac.db</dbGroupId>
-	<dbArtifactId>solor-all</dbArtifactId>
-	<dbVersion>2014.11.25</dbVersion>
-	<dbClassifier>active-only</dbClassifier>
-	<dbType>bdb.zip</dbType>
-
-	<!-- Drools version info - PLACEHOLDER
-	<droolsGroupId>${drools.group.id}</droolsGroupId>
-	<droolsArtifactid>${drools.artifactid}</droolsArtifactid>
-	<droolsVersion>${drools.version}</droolsVersion>
-	<droolsUrl>${drools.url}</droolsUrl>
-	 -->
-
 	<!-- Application properties -->
-	<applicationTitle>VHA ISAAC App - ISAAC Toolkit (v1.1)</applicationTitle>
+	<applicationTitle>VHA ISAAC App - ISAAC Toolkit</applicationTitle>
 	<previousReleaseVersion>20140731</previousReleaseVersion>
 	<releaseVersion>20150131</releaseVersion>
 	<extensionNamespace>1000161</extensionNamespace>
@@ -43,8 +23,6 @@
 	<changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_vha_changesets_git</changeSetUrl>
 	<changeSetUrlType>GIT</changeSetUrlType>
 	
-	<appSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/isaac-app/src/main/resources/xsd/AppConfigSchema.xsd</appSchemaLocation>
-	<userSchemaLocation>https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/otf-util/src/main/resources/xsd/UserGenerationSchema.xsd</userSchemaLocation>
 	<workflowServerUrl>http://162.243.255.43:8080/kie-wb/</workflowServerUrl>
 	<workflowServerDeploymentId>gov.va.isaac.demo:terminology-authoring:1.5</workflowServerDeploymentId>
 
