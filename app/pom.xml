@@ -265,7 +265,7 @@
 									<artifactItems>
 									<!-- unzip the config module, so we can get the users.xml file out of it -->
 										<artifactItem>
-											<groupId>gov.va.isaac.isaac-pa.modules</groupId>
+											<groupId>gov.va.isaac.isaac-pa.vha.modules</groupId>
 											<artifactId>config</artifactId>
 											<version>${project.parent.version}</version>
 											<outputDirectory>${project.build.directory}/config/</outputDirectory>
