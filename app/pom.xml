@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>gov.va.isaac.isaac-pa</groupId>
 		<artifactId>isaac-pa-parent</artifactId>
-		<version>Sprint_17-SNAPSHOT</version>
+		<version>Sprint_18-SNAPSHOT</version>
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.modules</groupId>
 	<artifactId>app</artifactId>
@@ -149,6 +149,73 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<!-- Assembly the basic app (sans DB or profile info) in a build folder -->
+		
+			<plugin>
+				<!-- metadata we want in the output package -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>copy metadata files</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<!-- Copy the things necessary to reproduce the build -->
+								<copy filtering="false" toDir="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/">
+									<fileset dir="${basedir}">
+										<include name="*.txt" />
+										<include name="*.xml" />
+									</fileset>
+									<fileset dir="${basedir}">
+										<include name="src/**/*" />
+									</fileset>
+								</copy>
+								
+								<!-- Create a file with the active build properties -->
+								<echoproperties destfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
+								
+								<!-- Setup the manifest, copy the license files -->
+								<copy filtering="false" toDir="${project.basedir}/target/isaac-app/META-INF/">
+									<fileset dir="${basedir}">
+										<include name="LICENSE.txt" />
+										<include name="NOTICE.txt" />
+									</fileset>
+								</copy>
+								
+								<!-- Write a manifest file, with properties filled in -->
+								<copy filtering="true" toDir="${project.basedir}/target/isaac-app/META-INF/">
+									<fileset dir="${basedir}/src/assembly/">
+										<include name="MANIFEST.MF" />
+									</fileset>
+									<filterset begintoken="${" endtoken="}" filtersfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/target/isaac-app/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -158,7 +225,7 @@
 						<goals>
 							<goal>single</goal>
 						</goals>
-						<phase>compile</phase> <!-- Other package phases need this - so do it during compile -->
+						<phase>compile</phase> <!-- Need to build this zip before things are added below, in later phases -->
 						<configuration>
 							<descriptors>
 								<descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
@@ -183,26 +250,6 @@
 			<id>zipWithDB</id>
 			<build>
 				<plugins>
-					<!-- Unpack isaac-app.zip file, which was created up above - contains the entire app deployment, minus the DB and users. -->
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>truezip-maven-plugin</artifactId>
-						<version>1.2</version>
-						<executions>
-							<execution>
-								<id>unpack-isaac-zip</id>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>cp</goal>
-								</goals>
-								<configuration>
-									<from>${project.build.directory}/isaac-app.zip</from>
-									<to>${project.build.directory}/isaac-app</to>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				
 					<!-- Unpack database, and configuration details -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -226,11 +273,11 @@
 										
 										<!-- The database to start with -->
 										<artifactItem>
-											<groupId>gov.va.isaac.db</groupId>
-											<artifactId>solor-snomed</artifactId>
-											<version>2014.11.25</version>
-											<classifier>active-only</classifier>
-											<type>bdb.zip</type>
+											<groupId>${dbGroupId}</groupId>
+											<artifactId>${dbArtifactId}</artifactId>
+											<version>${dbVersion}</version>
+											<classifier>${dbClassifier}</classifier>
+											<type>${dbType}</type>
 											<outputDirectory>${project.build.directory}/isaac-app/</outputDirectory>
 										</artifactItem>
 									</artifactItems>
