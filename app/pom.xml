@@ -128,30 +128,7 @@
 
 	<build>
 		<plugins>
-			<!-- Configure logging for the mojo code we will hit. -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>properties-maven-plugin</artifactId>
-				<version>1.0-alpha-2</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>set-system-properties</goal>
-						</goals>
-						<configuration>
-							<properties>
-								<property>
-									<name>logback.configurationFile</name>
-									<value>${project.basedir}/logback.xml</value>
-								</property>
-							</properties>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			
 			<!-- Assembly the basic app (sans DB or profile info) in a build folder -->
-		
 			<plugin>
 				<!-- metadata we want in the output package -->
 				<groupId>org.apache.maven.plugins</groupId>
