@@ -53,6 +53,11 @@
 		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
 	</user>
 	<user>
+		<uniqueFullName>Vasilios Kaloidis </uniqueFullName>
+		<uniqueLogonName>kvasilios</uniqueLogonName>
+		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
+	</user>
+	<user>
 		<uniqueFullName>Test User</uniqueFullName>
 		<uniqueLogonName>test</uniqueLogonName>
 		<workflowUserName>editor2</workflowUserName>
