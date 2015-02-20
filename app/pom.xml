@@ -95,6 +95,13 @@
 			<version>${isaac.version}</version>
 		</dependency>
 		
+		<!-- Mapping GUI integration -->
+		<dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>mapping</artifactId>
+			<version>${isaac.version}</version>
+		</dependency>
+		
 		<!-- Sync GUI integration -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
