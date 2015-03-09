@@ -3,6 +3,7 @@
  tag within github (can I be clever enough to figure this out from the maven isaac version?) -->
 <isaacUserCreation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/otf-util/src/main/resources/xsd/UserGenerationSchema.xsd">
+	<!-- Developers -->
 	<user>
 		<uniqueFullName>Dan Armbrust</uniqueFullName>
 		<uniqueLogonName>darmbrust</uniqueLogonName>
@@ -23,19 +24,9 @@
 		<workflowUserName>jesse</workflowUserName>
 	</user>
 	<user>
-		<uniqueFullName>Keith Campbell</uniqueFullName>
-		<uniqueLogonName>kcampbell</uniqueLogonName>
-		<workflowUserName>keith</workflowUserName>
-	</user>
-	<user>
 		<uniqueFullName>Brian Carlsen</uniqueFullName>
 		<uniqueLogonName>bcarlsen</uniqueLogonName>
 		<workflowUserName>brian</workflowUserName>
-	</user>
-	<user>
-		<uniqueFullName>Catherine Hoang</uniqueFullName>
-		<uniqueLogonName>choang</uniqueLogonName>
-		<workflowUserName>catherine</workflowUserName>
 	</user>
 	<user>
 		<uniqueFullName>Joel Kniaz</uniqueFullName>
@@ -45,18 +36,53 @@
 	<user>
 		<uniqueFullName>Jessica Snell</uniqueFullName>
 		<uniqueLogonName>jsnell</uniqueLogonName>
-		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
 	</user>
 	<user>
 		<uniqueFullName>Tun Tun Naing</uniqueFullName>
 		<uniqueLogonName>tnaing</uniqueLogonName>
-		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
 	</user>
 	<user>
 		<uniqueFullName>Vasilios Kaloidis </uniqueFullName>
 		<uniqueLogonName>kvasilios</uniqueLogonName>
-		<workflowUserName>owen</workflowUserName>  <!-- Convenient... it exists, and he isn't here. -->
 	</user>
+	<user>
+		<uniqueFullName>John Carter</uniqueFullName>
+		<uniqueLogonName>jcarter</uniqueLogonName>
+	</user>
+	<user>
+		<uniqueFullName>Shapoor Shayegan</uniqueFullName>
+		<uniqueLogonName>shayegani</uniqueLogonName>
+	</user>
+	<user>
+		<uniqueFullName>Daniel Smith</uniqueFullName>
+		<uniqueLogonName>dsmith</uniqueLogonName>
+	</user>
+	<user>
+		<uniqueFullName>David Triglianos</uniqueFullName>
+		<uniqueLogonName>dtriglianos</uniqueLogonName>
+	</user>
+	<user>
+		<uniqueFullName>Jaqui Parker</uniqueFullName>
+		<uniqueLogonName>jparker</uniqueLogonName>
+	</user>
+	<user>
+		<uniqueFullName>Carol Macumber</uniqueFullName>
+		<uniqueLogonName>cmacumber</uniqueLogonName>
+	</user>
+	
+	<!-- VA Testers -->
+	
+	<user>
+		<uniqueFullName>Keith Campbell</uniqueFullName>
+		<uniqueLogonName>kcampbell</uniqueLogonName>
+		<workflowUserName>keith</workflowUserName>
+	</user>
+	<user>
+		<uniqueFullName>Catherine Hoang</uniqueFullName>
+		<uniqueLogonName>choang</uniqueLogonName>
+		<workflowUserName>catherine</workflowUserName>
+	</user>
+	
 	<user>
 		<uniqueFullName>Test User</uniqueFullName>
 		<uniqueLogonName>test</uniqueLogonName>
