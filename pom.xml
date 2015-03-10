@@ -4,7 +4,7 @@
 
 	<groupId>gov.va.isaac.isaac-pa</groupId>
 	<artifactId>isaac-pa-parent</artifactId>
-	<version>Sprint_19-mapping-SNAPSHOT</version>
+	<version>Sprint_20-mapping-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>ISAAC Project Assembly Parent</name>
@@ -33,10 +33,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<isaac.version>Sprint_19-mapping-SNAPSHOT</isaac.version>
+		<isaac.version>Sprint_20-mapping-SNAPSHOT</isaac.version>
 		<dbGroupId>gov.va.isaac.db</dbGroupId>
 		<dbArtifactId>solor-snomed</dbArtifactId>
-		<dbVersion>2015.01.15</dbVersion>
+		<dbVersion>2015.03.06</dbVersion>
 		<dbClassifier>active-only</dbClassifier>
 		<dbType>bdb.zip</dbType>
 		
