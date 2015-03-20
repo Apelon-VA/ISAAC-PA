@@ -15,10 +15,6 @@
 
 	<!-- Application properties -->
 	<applicationTitle>Develop ISAAC App - ISAAC Toolkit</applicationTitle>
-	<previousReleaseVersion>20140731</previousReleaseVersion>
-	<releaseVersion>20150131</releaseVersion>
-	<extensionNamespace>1000161</extensionNamespace>
-	<moduleId>sampleModuleId</moduleId>
 
 	<!-- GIT Testing -->
 	<!--changeSetUrl>ssh://someuser@csfe.aceworkspace.net:29418/isaac_pa_demo_changesets</changeSetUrl>
