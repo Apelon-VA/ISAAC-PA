@@ -3,6 +3,7 @@
  tag within github (can I be clever enough to figure this out from the maven isaac version?) -->
 <isaacUserCreation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Apelon-VA/ISAAC/master/otf-util/src/main/resources/xsd/UserGenerationSchema.xsd">
+	
 	<!-- Developers -->
 	<user>
 		<uniqueFullName>Dan Armbrust</uniqueFullName>
@@ -42,7 +43,7 @@
 		<uniqueLogonName>tnaing</uniqueLogonName>
 	</user>
 	<user>
-		<uniqueFullName>Vasilios Kaloidis </uniqueFullName>
+		<uniqueFullName>Vasilios Kaloidis</uniqueFullName>
 		<uniqueLogonName>kvasilios</uniqueLogonName>
 	</user>
 	<user>
