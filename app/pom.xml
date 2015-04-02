@@ -15,6 +15,10 @@
 	<name>ISAAC Application Assembly</name>
 	<description>Assembles specified ISAAC modules and configuration into an application.</description>
 
+	<properties>
+		<skipExportAssembly>false</skipExportAssembly>
+	</properties>
+
 	<dependencies>
 
 		<!-- Configuration module. -->
@@ -350,6 +354,29 @@
 								</configuration>
 							</execution>
 
+							<!-- Export Mojo -->
+							<!-- To make this Run you must pass in -Dexport=true  -->
+							<execution>	
+								<id>export</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>Export</goal>
+								</goals>
+								<configuration>
+									<!-- Required -->
+									<outputFolder>${project.build.directory}/export/</outputFolder>
+									
+									<exportType>
+										<exportType>SNAPSHOT</exportType>
+									</exportType>
+									
+									<path>
+										<fsn>ISAAC development path</fsn>
+										<uuid>f5c0a264-15af-5b94-a964-bb912ea5634f</uuid>
+									</path>
+								</configuration>
+							</execution>
+
 							<execution>
 								<id>shutdown</id>
 								<phase>prepare-package</phase>
@@ -382,6 +409,22 @@
 									<classifier>with-DB</classifier>
 								</configuration>
 							</execution>
+							
+							<execution>
+								<id>zipOutput</id>
+								<goals>
+									<goal>attached</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<skipAssembly>${skipExportAssembly}</skipAssembly>
+									<descriptors>
+										<descriptor>${project.basedir}/src/assembly/export-assembly.xml</descriptor>
+									</descriptors>
+									<finalName>upload</finalName>
+								</configuration>
+							</execution>
+							
 						</executions>
 					</plugin>
 					
