@@ -52,9 +52,11 @@
 		</dependency>
 
 		<!-- ISAAC Classifier. -->
-		<!-- disabled for the moment -->
-		<!--dependency> <groupId>gov.va.isaac.modules</groupId> <artifactId>isaac-classifier</artifactId> 
-			<version>${isaac.version}</version> </dependency -->
+		<!--dependency>
+			<groupId>gov.va.isaac.modules</groupId>
+			<artifactId>isaac-classifier</artifactId>
+			<version>${isaac.version}</version>
+		</dependency-->
 
 		<!-- ISAAC Taxonomy View. -->
 		<dependency>
@@ -303,7 +305,8 @@
 									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
 									<!--Depending on the SCM implementation, there are multiple ways 
 										to handle this auth, see comments above -->
-									<!--profileSyncUsername></profileSyncUsername> <profileSyncPassword></profileSyncPassword -->
+									<!--profileSyncUsername></profileSyncUsername> 
+									<profileSyncPassword></profileSyncPassword -->
 								</configuration>
 							</execution>
 
@@ -346,7 +349,8 @@
 									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
 									<!--Depending on the SCM implementation, there are multiple ways 
 										to handle this auth, see comments above -->
-									<!--profileSyncUsername></profileSyncUsername> <profileSyncPassword></profileSyncPassword -->
+									<!--profileSyncUsername></profileSyncUsername> 
+									<profileSyncPassword></profileSyncPassword -->
 								</configuration>
 							</execution>
 
@@ -433,10 +437,8 @@
 									<classifier>delta</classifier>
 								</configuration>
 							</execution>
-
 						</executions>
 					</plugin>
-
 				</plugins>
 			</build>
 
