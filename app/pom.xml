@@ -367,7 +367,7 @@
 							</execution>
 
 							<!-- Export Mojo -->
-							<!-- To make this Run you must pass -DskipExportAssembly -->
+							<!-- To make this Run you must pass -DskipExportAssembly=false -->
 							<execution>
 								<id>export</id>
 								<phase>prepare-package</phase>
@@ -377,6 +377,7 @@
 								<configuration>
 									<!-- Required -->
 									<outputFolder>${project.build.directory}/export/</outputFolder>
+									<skipExportAssembly>${skipExportAssembly}</skipExportAssembly>
 
 									<exportType>
 										<exportType>SNAPSHOT</exportType>
