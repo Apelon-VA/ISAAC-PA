@@ -3,6 +3,7 @@
 	<formats>
 		<format>zip</format>
 	</formats>
+	<id>content-export</id>
 	<fileSets>
 		<fileSet>
 			<directory>${project.build.directory}/export/</directory>
