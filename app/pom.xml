@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>gov.va.isaac.isaac-pa</groupId>
 		<artifactId>isaac-pa-parent</artifactId>
-		<version>master-Sprint_19</version>
+		<version>Sprint_20</version>
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.modules</groupId>
 	<artifactId>app</artifactId>
@@ -14,6 +14,11 @@
 
 	<name>ISAAC Application Assembly</name>
 	<description>Assembles specified ISAAC modules and configuration into an application.</description>
+
+	<properties>
+		<!-- To make the Export Run you must pass -DskipExportAssembly=false -->
+		<skipExportAssembly>true</skipExportAssembly>
+	</properties>
 
 	<dependencies>
 
@@ -44,9 +49,8 @@
 			<artifactId>content-request</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-	
+
 		<!-- ISAAC Classifier. -->
-		<!-- disabled for the moment -->
 		<!--dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>isaac-classifier</artifactId>
@@ -59,65 +63,66 @@
 			<artifactId>taxonomy-view</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- ISAAC Search View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>search-view</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-	
+
 		<!-- ISAAC Lego View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>lego-view</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- ISAAC Info Model View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>info-model-view</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- ISAAC List / Batch View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>list-view</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- Workflow View. -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>isaac-workflow</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- Mapping GUI integration -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>mapping</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- Sync GUI integration -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>sync-view</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
-		<!-- Only one of the following is required - GIT or SVN - but no harm comes from having both
-		  the correct implementation will be selected based on the sync configuration in app.xml - changeSetUrlType parameter  -->
+
+		<!-- Only one of the following is required - GIT or SVN - but no harm comes 
+			from having both the correct implementation will be selected based on the 
+			sync configuration in app.xml - changeSetUrlType parameter -->
 		<!-- Sync GIT integration -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
 			<artifactId>sync-git</artifactId>
 			<version>${isaac.version}</version>
 		</dependency>
-		
+
 		<!-- Sync SVN integration -->
 		<dependency>
 			<groupId>gov.va.isaac.modules</groupId>
@@ -157,10 +162,10 @@
 										<include name="src/**/*" />
 									</fileset>
 								</copy>
-								
+
 								<!-- Create a file with the active build properties -->
 								<echoproperties destfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
-								
+
 								<!-- Setup the manifest, copy the license files -->
 								<copy filtering="false" toDir="${project.basedir}/target/isaac-app/META-INF/">
 									<fileset dir="${basedir}">
@@ -168,7 +173,7 @@
 										<include name="NOTICE.txt" />
 									</fileset>
 								</copy>
-								
+
 								<!-- Write a manifest file, with properties filled in -->
 								<copy filtering="true" toDir="${project.basedir}/target/isaac-app/META-INF/">
 									<fileset dir="${basedir}/src/assembly/">
@@ -184,7 +189,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		
+
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.9</version>
@@ -200,7 +205,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		
+
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
@@ -221,14 +226,16 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<profiles>
-		<!-- If a user wants to just build the small zip, and not do any DB stuff, they should set the parameter '-DskipDB' -->
+		<!-- If a user wants to just build the small zip, and not do any DB stuff, 
+			they should set the parameter '-DskipDB' -->
 		<profile>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 				<property>
-					<name>!skipDB</name>  <!-- Hack maven, which still doesn't allow chaining of profiles.  What year is this? -->
+					<name>!skipDB</name>  <!-- Hack maven, which still doesn't allow chaining of profiles. What year 
+						is this? -->
 				</property>
 			</activation>
 			<id>zipWithDB</id>
@@ -247,14 +254,15 @@
 								</goals>
 								<configuration>
 									<artifactItems>
-									<!-- unzip the config module, so we can get the users.xml file out of it -->
+										<!-- unzip the config module, so we can get the users.xml file 
+											out of it -->
 										<artifactItem>
 											<groupId>gov.va.isaac.isaac-pa.modules</groupId>
 											<artifactId>config</artifactId>
 											<version>${project.parent.version}</version>
 											<outputDirectory>${project.build.directory}/config/</outputDirectory>
 										</artifactItem>
-										
+
 										<!-- The database to start with -->
 										<artifactItem>
 											<groupId>${dbGroupId}</groupId>
@@ -269,17 +277,17 @@
 							</execution>
 						</executions>
 					</plugin>
-					
+
 					<plugin>
 						<groupId>gov.va.isaac.modules</groupId>
 						<artifactId>mojos</artifactId>
 						<version>${isaac.version}</version>
 						<executions>
-						
+
 							<!-- See https://raw.githubusercontent.com/IHTSDO/ISAAC/master/mojos/src/main/java/gov/va/isaac/mojos/profileSync/ProfilesMojoBase.java 
-								for details on how authentication is handled for this.  This execution only runs if changeSetUrl and changeSetUrlType are defined in app.xml 
-								To skip SCM steps for profiles entirely, specify '-DprofileSyncDisable=true'
-							-->
+								for details on how authentication is handled for this. This execution only 
+								runs if changeSetUrl and changeSetUrlType are defined in app.xml To skip 
+								SCM steps for profiles entirely, specify '-DprofileSyncDisable=true' -->
 							<execution>
 								<id>get-and-link-profile-scm</id>
 								<phase>prepare-package</phase>
@@ -289,12 +297,13 @@
 								<configuration>
 									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
 									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
-									<!--Depending on the SCM implementation, there are multiple ways to handle this auth, see comments above-->
-									<!--profileSyncUsername></profileSyncUsername>  
-									<profileSyncPassword></profileSyncPassword-->
+									<!--Depending on the SCM implementation, there are multiple ways 
+										to handle this auth, see comments above -->
+									<!--profileSyncUsername></profileSyncUsername> 
+									<profileSyncPassword></profileSyncPassword -->
 								</configuration>
 							</execution>
-						
+
 							<!-- generate user profiles -->
 							<execution>
 								<id>setup</id>
@@ -318,11 +327,11 @@
 									<usersFileLocation>${project.build.directory}/config/users.xml</usersFileLocation>
 								</configuration>
 							</execution>
-							
+
 							<!-- See https://raw.githubusercontent.com/IHTSDO/ISAAC/master/mojos/src/main/java/gov/va/isaac/mojos/profileSync/ProfilesMojoBase.java 
-								for details on how authentication is handled for this.  This execution only runs if changeSetUrl and changeSetUrlType are defined in app.xml
-								To skip SCM steps for profiles entirely, specify '-DprofileSyncDisable=true'
-							-->
+								for details on how authentication is handled for this. This execution only 
+								runs if changeSetUrl and changeSetUrlType are defined in app.xml To skip 
+								SCM steps for profiles entirely, specify '-DprofileSyncDisable=true' -->
 							<execution>
 								<id>add-commit-and-push-profile-scm</id>
 								<phase>prepare-package</phase>
@@ -332,9 +341,10 @@
 								<configuration>
 									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
 									<appXMLFile>${project.build.directory}/config/app.xml</appXMLFile>
-									<!--Depending on the SCM implementation, there are multiple ways to handle this auth, see comments above-->
-									<!--profileSyncUsername></profileSyncUsername>  
-									<profileSyncPassword></profileSyncPassword-->
+									<!--Depending on the SCM implementation, there are multiple ways 
+										to handle this auth, see comments above -->
+									<!--profileSyncUsername></profileSyncUsername> 
+									<profileSyncPassword></profileSyncPassword -->
 								</configuration>
 							</execution>
 
@@ -347,6 +357,30 @@
 								</goals>
 								<configuration>
 									<userProfileFolderLocation>${project.build.directory}/isaac-app/profiles/</userProfileFolderLocation>
+								</configuration>
+							</execution>
+
+							<!-- Export Mojo -->
+							<!-- To make this Run you must pass -DskipExportAssembly=false -->
+							<execution>
+								<id>export</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>Export</goal>
+								</goals>
+								<configuration>
+									<!-- Required -->
+									<outputFolder>${project.build.directory}/export/</outputFolder>
+									<skipExportAssembly>${skipExportAssembly}</skipExportAssembly>
+
+									<exportType>
+										<exportType>SNAPSHOT</exportType>
+									</exportType>
+
+									<path>
+										<fsn>ISAAC development path</fsn>
+										<uuid>f5c0a264-15af-5b94-a964-bb912ea5634f</uuid>
+									</path>
 								</configuration>
 							</execution>
 
@@ -363,7 +397,7 @@
 						</executions>
 
 					</plugin>
-					
+
 					<!-- Package into a ZIP file with the DB. -->
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
@@ -382,14 +416,29 @@
 									<classifier>with-DB</classifier>
 								</configuration>
 							</execution>
+
+							<execution>
+								<id>zipOutput</id>
+								<goals>
+									<goal>attached</goal>
+								</goals>
+								<phase>package</phase>
+								<configuration>
+									<skipAssembly>${skipExportAssembly}</skipAssembly>
+									<descriptors>
+										<descriptor>${project.basedir}/src/assembly/export-assembly.xml</descriptor>
+									</descriptors>
+									<finalName>content-export</finalName>
+									<classifier>delta</classifier>
+								</configuration>
+							</execution>
 						</executions>
 					</plugin>
-					
 				</plugins>
 			</build>
-			
+
 		</profile>
-		
+
 		<profile>
 			<!-- This profile depends on zipWithDB being run -->
 			<id>installer</id>
@@ -419,7 +468,7 @@
 							</execution>
 						</executions>
 					</plugin>
-					
+
 					<plugin>
 						<groupId>com.google.code.maven-install4j</groupId>
 						<artifactId>maven-install4j-plugin</artifactId>
@@ -443,7 +492,7 @@
 							</execution>
 						</executions>
 					</plugin>
-					
+
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
