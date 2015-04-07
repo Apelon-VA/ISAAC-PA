@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>gov.va.isaac.isaac-pa</groupId>
 		<artifactId>isaac-pa-parent</artifactId>
-		<version>Sprint_20-SNAPSHOT</version>
+		<version>Sprint_21-SNAPSHOT</version>
 	</parent>
 	<groupId>gov.va.isaac.isaac-pa.modules</groupId>
 	<artifactId>app</artifactId>
@@ -154,8 +153,7 @@
 						<configuration>
 							<target>
 								<!-- Copy the things necessary to reproduce the build -->
-								<copy filtering="false"
-									toDir="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/">
+								<copy filtering="false" toDir="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/">
 									<fileset dir="${basedir}">
 										<include name="*.txt" />
 										<include name="*.xml" />
@@ -166,12 +164,10 @@
 								</copy>
 
 								<!-- Create a file with the active build properties -->
-								<echoproperties
-									destfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
+								<echoproperties destfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
 
 								<!-- Setup the manifest, copy the license files -->
-								<copy filtering="false"
-									toDir="${project.basedir}/target/isaac-app/META-INF/">
+								<copy filtering="false" toDir="${project.basedir}/target/isaac-app/META-INF/">
 									<fileset dir="${basedir}">
 										<include name="LICENSE.txt" />
 										<include name="NOTICE.txt" />
@@ -179,13 +175,11 @@
 								</copy>
 
 								<!-- Write a manifest file, with properties filled in -->
-								<copy filtering="true"
-									toDir="${project.basedir}/target/isaac-app/META-INF/">
+								<copy filtering="true" toDir="${project.basedir}/target/isaac-app/META-INF/">
 									<fileset dir="${basedir}/src/assembly/">
 										<include name="MANIFEST.MF" />
 									</fileset>
-									<filterset begintoken="${" endtoken="}"
-										filtersfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
+									<filterset begintoken="${" endtoken="}" filtersfile="${project.basedir}/target/isaac-app/META-INF/maven/${project.groupId}/${project.artifactId}/pom.properties" />
 								</copy>
 							</target>
 						</configuration>
